@@ -25,7 +25,7 @@
 
     <div class="mb-4">
         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-        <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" required autocomplete="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+        <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" autocomplete="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
         @error('title')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
@@ -33,7 +33,7 @@
 
     <div class="mb-4">
         <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
-        <input type="text" name="author" id="author" value="{{ old('author', $post->author) }}" required autocomplete="author" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+        <input type="text" name="author" id="author" value="{{ old('author', $post->author) }}" autocomplete="author" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
         @error('author')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
@@ -41,7 +41,7 @@
 
     <div class="mb-4">
         <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-        <textarea name="description" id="description" required autocomplete="description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ old('description', $post->description) }}</textarea>
+        <textarea name="description" id="description" autocomplete="description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ old('description', $post->description) }}</textarea>
         @error('description')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
