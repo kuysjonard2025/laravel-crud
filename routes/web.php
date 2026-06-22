@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PageController;
 
-Route::get("/", function () {
-    $title = 'Home';
-    return view('welcome', compact('title'));
-})->name('home');
+Route::get("/", [PageController::class, 'index'])->name('home');
 
 Route::resource('posts', PostController::class);
 
