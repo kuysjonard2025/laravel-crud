@@ -31,15 +31,14 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request) {
+        $validated = $request->validate([
+            'title' => 'required|min:3|max:50',
+            'author' => 'required|min:3|max:50',
+            'description' => 'required|min:3|max:255',
+        ]);
+
         try {
-            $validated = $request->validate([
-                'title' => 'required|min:3|max:50',
-                'author' => 'required|min:3|max:50',
-                'description' => 'required|min:3|max:255',
-            ]);
-
             Post::create($validated);
-
             return redirect()->route('posts.index')->with('success', 'Post created successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -70,15 +69,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $validated = $request->validate([
+            'title' => 'required|min:3|max:50',
+            'author' => 'required|min:3|max:50',
+            'description' => 'required|min:3|max:255',
+        ]);
+
         try {
-            $validated = $request->validate([
-                'title' => 'required|min:3|max:50',
-                'author' => 'required|min:3|max:50',
-                'description' => 'required|min:3|max:255',
-            ]);
-
             $post->update($validated);
-
             return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
