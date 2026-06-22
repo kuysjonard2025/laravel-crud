@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        @fonts
+
+        <!-- Styles / Scripts -->
+        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @else
+            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        @endif
+    </head>
+    <body>
+        <div class="container mx-auto">
+            @yield('header')
+            @yield('content')
+            @yield('footer')
+        </div>
+    </body>
+</html>
